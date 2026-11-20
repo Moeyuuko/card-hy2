@@ -4,6 +4,12 @@ Card HY2 是面向 CardputerZero（ARM64）的 Hysteria 2 客户端。它可以�
 
 源代码托管在 [Moeyuuko/card-hy2](https://github.com/Moeyuuko/card-hy2)。
 
+## 实机截图
+
+| 首页 | 节点管理 | 更多设置 |
+| --- | --- | --- |
+| ![Card HY2 首页，显示代理状态和核心版本](screenshots/home.png) | ![节点管理页，节点名称已打码](screenshots/nodes.png) | ![更多菜单，包含语言、局域网共享和开机启动](screenshots/more.png) |
+
 ## 功能
 
 - 手动添加、编辑和切换节点。配有摄像头的设备可扫描 `hysteria2://` 或 `hy2://` 节点二维码，也可生成二维码分享。
