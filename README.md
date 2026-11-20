@@ -30,6 +30,8 @@ sudo apt install ./card-hy2_0.0.1-1_arm64.deb
 
 在 ZeroDesk 的 Shell 或 SSH 中，也可用 `card-hy2 status` 查看状态，或用 `card-hy2 recover` 恢复网络。更多键位、配置路径和故障排查见[使用手册](docs/card-hy2-beta.md)。
 
-## 上游项目
+## 许可证
+
+Card HY2 自身的代码以 [MIT](LICENSE) 许可发布。
 
 代理核心由 Hysteria 项目维护，安装包附带其许可证。[Hysteria 2](https://github.com/HyNetworks/hysteria) · [核心许可证](packaging/hysteria-LICENSE.md)

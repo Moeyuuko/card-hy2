@@ -66,6 +66,7 @@ def main():
         "usr/share/APPLaunch/share/images/card-hy2.png": ("card-hy2.png", 0o644),
         "usr/share/card-hy2/settings.yaml": ("settings.yaml", 0o644),
         "usr/share/doc/card-hy2/README.md": ("../docs/card-hy2-beta.md", 0o644),
+        "usr/share/doc/card-hy2/LICENSE": ("../LICENSE", 0o644),
         "usr/share/doc/card-hy2/hysteria-LICENSE.md": ("hysteria-LICENSE.md", 0o644),
     }
     for unit in (

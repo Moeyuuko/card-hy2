@@ -1,0 +1,37 @@
+{
+  "package_name": "card-hy2",
+  "version": "0.0.1-1",
+  "app_name": "Card HY2",
+  "bin_name": "card-hy2-screen",
+  "description": "Hysteria 2 client controller for CardputerZero",
+  "store": {
+    "summary": "Hysteria 2 client for CardputerZero with SOCKS5 and local TUN.",
+    "description": "Manage Hysteria 2 nodes, import and share node QR codes, and run a SOCKS5 or local TUN proxy in the background. Includes an official Hysteria core, optional auto-start and a network recovery option.",
+    "categories": ["System Tools"],
+    "screenshots": [
+      "screenshots/home.png",
+      "screenshots/nodes.png",
+      "screenshots/more.png"
+    ],
+    "source_repo": "https://github.com/Moeyuuko/card-hy2",
+    "license": "MIT",
+    "author": {
+      "github": "Moeyuuko",
+      "display_name": "Moeyuuko"
+    },
+    "permissions": {
+      "camera": true,
+      "microphone": false,
+      "imu": false,
+      "network": true,
+      "additional_hardware": false,
+      "background_service": true,
+      "external_display": false
+    },
+    "locales": {
+      "zh-CN": {
+        "summary": "面向 CardputerZero 的 Hysteria 2 客户端，支持节点管理、SOCKS5 和本机 TUN。"
+      }
+    }
+  }
+}
