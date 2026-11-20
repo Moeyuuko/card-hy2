@@ -1,0 +1,11 @@
+[Unit]
+Description=Card HY2 local proxy control socket
+
+[Socket]
+ListenStream=/run/card-hy2-control.sock
+# Peer credentials restrict commands to device administrators and legacy operators.
+SocketMode=0666
+RemoveOnStop=yes
+
+[Install]
+WantedBy=sockets.target

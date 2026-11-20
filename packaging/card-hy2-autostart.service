@@ -1,0 +1,20 @@
+[Unit]
+Description=Start Card HY2 at boot when enabled
+Wants=network-online.target
+Requires=card-hy2.socket
+After=network-online.target card-hy2.socket
+ConditionPathExists=/var/lib/card-hy2/config/autostart
+ConditionPathExists=/var/lib/card-hy2/config/applied.yaml
+ConditionPathExists=!/var/lib/card-hy2/config/recovery
+
+[Service]
+Type=oneshot
+User=card-hy2-run
+Group=card-hy2
+ExecStart=/usr/bin/python3 -I /usr/lib/card-hy2/control.py
+NoNewPrivileges=yes
+ProtectSystem=strict
+ProtectHome=yes
+
+[Install]
+WantedBy=multi-user.target

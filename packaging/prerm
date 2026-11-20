@@ -1,0 +1,9 @@
+#!/bin/sh
+set -eu
+if [ "$1" = remove ]; then
+    if [ -d /run/systemd/system ]; then
+        systemctl stop card-hy2-autostart.service card-hy2.socket card-hy2-update.socket card-hy2.service card-hy2-update.service
+    fi
+    systemctl --root=/ disable card-hy2-autostart.service card-hy2.socket card-hy2-update.socket
+    /usr/bin/python3 -I /usr/lib/card-hy2/access.py revoke
+fi

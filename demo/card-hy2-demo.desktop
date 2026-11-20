@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=Card HY2 Demo
+Exec=/usr/bin/card-hy2-demo
+Icon=share/images/card-hy2-demo.png
+Terminal=false

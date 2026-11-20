@@ -1,0 +1,11 @@
+[Unit]
+Description=Card HY2 local core update socket
+
+[Socket]
+ListenStream=/run/card-hy2-update.sock
+# The update service checks peer credentials before processing requests.
+SocketMode=0666
+RemoveOnStop=yes
+
+[Install]
+WantedBy=sockets.target

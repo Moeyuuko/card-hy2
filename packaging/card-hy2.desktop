@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=Card HY2
+Exec=/usr/bin/card-hy2-screen
+Icon=share/images/card-hy2.png
+Terminal=false

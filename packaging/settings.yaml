@@ -1,0 +1,5 @@
+node: null
+mode: socks
+share_lan: false
+# Add the SSH client's /32 or /128 here if managing from a routed network.
+bypass: []

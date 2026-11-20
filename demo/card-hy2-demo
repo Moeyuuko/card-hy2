@@ -1,0 +1,96 @@
+#!/usr/bin/python3
+"""Show an empty screen until Escape is pressed on CardputerZero."""
+
+from array import array
+from contextlib import ExitStack
+from fcntl import ioctl
+from glob import glob
+from mmap import mmap
+import os
+from select import select
+from struct import Struct
+import sys
+
+
+FBIOGET_VSCREENINFO = 0x4600
+FBIOGET_FSCREENINFO = 0x4602
+FB_FIXED_PREFIX = Struct("@16sLIIIIHHHI")
+INPUT_EVENT = Struct("@llHHi")
+EV_KEY = 1
+KEY_ESC = 1
+KEY_ENTER = 28
+KEY_A = 30
+KEY_BITMAP_BYTES = 96
+EVIOCGBIT_KEY = 0x80004521 | (KEY_BITMAP_BYTES << 16)
+
+
+def open_keyboard():
+    configured = os.environ.get("LV_LINUX_KEYBOARD_DEVICE")
+    paths = [configured] if configured else sorted(glob("/dev/input/event*"))
+    for path in paths:
+        try:
+            with ExitStack() as candidate:
+                keyboard = candidate.enter_context(open(path, "rb", buffering=0))
+                keys = bytearray(KEY_BITMAP_BYTES)
+                ioctl(keyboard, EVIOCGBIT_KEY, keys)
+                if all(keys[key // 8] & (1 << (key % 8)) for key in (KEY_ESC, KEY_ENTER, KEY_A)):
+                    candidate.pop_all()
+                    return keyboard
+        except OSError:
+            if configured:
+                raise
+    raise RuntimeError("No readable keyboard with Escape, Enter and A")
+
+
+def paint_blank():
+    configured = os.environ.get("LV_LINUX_FBDEV_DEVICE")
+    paths = [configured] if configured else sorted(glob("/dev/fb[0-9]*"))
+    for path in paths:
+        try:
+            with open(path, "r+b", buffering=0) as device:
+                mode = array("I", [0] * 40)
+                ioctl(device, FBIOGET_VSCREENINFO, mode)
+                width, height, _, _, x, y, bits = mode[:7]
+                if (width, height) != (320, 170) or bits not in (16, 24, 32):
+                    continue
+
+                fixed = bytearray(128)
+                ioctl(device, FBIOGET_FSCREENINFO, fixed)
+                _, _, size, layout, _, visual, _, _, _, stride = FB_FIXED_PREFIX.unpack_from(fixed)
+                bytes_per_pixel = bits // 8
+                row = bytes(width * bytes_per_pixel)
+                offset = x * bytes_per_pixel
+                end = (y + height - 1) * stride + offset + len(row)
+                if layout != 0 or visual not in (2, 4) or offset + len(row) > stride or end > size:
+                    continue
+
+                with mmap(device.fileno(), end) as pixels:
+                    for start in range(y * stride + offset, end, stride):
+                        pixels[start:start + len(row)] = row
+                return
+        except OSError:
+            if configured:
+                raise
+    raise RuntimeError("No writable 320x170 RGB framebuffer")
+
+
+def main():
+    with open_keyboard() as keyboard:
+        paint_blank()
+        while True:
+            select([keyboard], [], [])
+            event = keyboard.read(INPUT_EVENT.size)
+            if len(event) != INPUT_EVENT.size:
+                raise RuntimeError("Keyboard disconnected")
+            _, _, kind, code, value = INPUT_EVENT.unpack(event)
+            if (kind, code, value) == (EV_KEY, KEY_ESC, 1):
+                return
+
+
+if __name__ == "__main__":
+    try:
+        main()
+    except KeyboardInterrupt:
+        pass
+    except (OSError, RuntimeError) as error:
+        sys.exit(f"Card HY2 Demo: {error}")

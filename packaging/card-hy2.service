@@ -1,0 +1,24 @@
+[Unit]
+Description=Card HY2 proxy
+Wants=network-online.target
+After=network-online.target
+Requires=card-hy2.socket
+
+[Service]
+Type=exec
+User=card-hy2-run
+Group=card-hy2
+ExecStart=/usr/bin/python3 /usr/lib/card-hy2/service.py proxy-control
+RuntimeDirectory=card-hy2
+RuntimeDirectoryMode=0755
+UMask=0077
+AmbientCapabilities=CAP_NET_ADMIN
+CapabilityBoundingSet=CAP_NET_ADMIN
+NoNewPrivileges=yes
+ProtectSystem=strict
+ProtectHome=yes
+PrivateTmp=yes
+DevicePolicy=closed
+DeviceAllow=/dev/net/tun rw
+Environment=HYSTERIA_DISABLE_UPDATE_CHECK=1
+TimeoutStopSec=8s

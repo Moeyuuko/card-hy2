@@ -1,0 +1,19 @@
+[Unit]
+Description=Download official Hysteria core for Card HY2
+Wants=network-online.target
+After=network-online.target
+Requires=card-hy2-update.socket
+
+[Service]
+Type=exec
+User=card-hy2-fetch
+ExecStart=/usr/bin/python3 /usr/lib/card-hy2/service.py update-control
+StateDirectory=card-hy2/core
+StateDirectoryMode=0755
+NoNewPrivileges=yes
+ProtectSystem=strict
+ProtectHome=yes
+PrivateTmp=yes
+PrivateDevices=yes
+UMask=0022
+TimeoutStopSec=8s

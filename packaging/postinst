@@ -1,0 +1,38 @@
+#!/bin/sh
+set -eu
+
+if [ "$1" = configure ] || [ "$1" = abort-remove ]; then
+    if ! getent group card-hy2 >/dev/null; then
+        addgroup --system card-hy2
+    fi
+    if ! getent passwd card-hy2-run >/dev/null; then
+        adduser --system --no-create-home --ingroup card-hy2 card-hy2-run
+    fi
+    if ! getent passwd card-hy2-fetch >/dev/null; then
+        adduser --system --no-create-home --group card-hy2-fetch
+    fi
+
+    if [ "$(systemctl --root=/ is-enabled card-hy2.service 2>/dev/null || true)" = enabled ]; then
+        /usr/bin/python3 -I /usr/lib/card-hy2/access.py configure migrate-autostart
+        systemctl --root=/ disable card-hy2.service
+    else
+        /usr/bin/python3 -I /usr/lib/card-hy2/access.py configure
+    fi
+    systemctl --root=/ enable card-hy2.socket card-hy2-update.socket card-hy2-autostart.service
+    if [ -d /run/systemd/system ]; then
+        resume=false
+        if [ -f /run/card-hy2/version ] && systemctl is-active --quiet card-hy2.service; then
+            resume=true
+        fi
+        systemctl daemon-reload
+        systemctl stop card-hy2.socket card-hy2-update.socket card-hy2.service card-hy2-update.service
+        if systemctl is-active --quiet card-hy2-rollback.service; then
+            systemctl stop card-hy2-rollback.service
+        fi
+        systemctl start card-hy2.socket card-hy2-update.socket
+        if [ "$resume" = true ] && [ ! -e /var/lib/card-hy2/config/recovery ]; then
+            /usr/bin/python3 -I /usr/lib/card-hy2/control.py ||
+                echo "Card HY2: could not resume the proxy; see journalctl -u card-hy2" >&2
+        fi
+    fi
+fi
