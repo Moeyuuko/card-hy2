@@ -36,6 +36,14 @@ sudo apt install ./card-hy2_0.0.2_arm64.deb
 
 在 ZeroDesk 的 Shell 或 SSH 中，也可用 `card-hy2 status` 查看状态，或用 `card-hy2 recover` 恢复网络。更多键位、配置路径和故障排查见[使用手册](docs/card-hy2-beta.md)。
 
+## 节点列表快捷键
+
+在节点列表可按 **2 / 3** 或 **F / X** 上下移动。长按可以连续移动。
+
+## 商店资料
+
+[app-builder.json](app-builder.json) 提供简体中文、英语和日语的商店标题、短简介和长介绍。应用界面支持简体中文和英语。
+
 ## 许可证
 
 Card HY2 自身的代码以 [MIT](LICENSE) 许可发布。
