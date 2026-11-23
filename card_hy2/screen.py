@@ -14,7 +14,7 @@ from PIL import Image, ImageDraw, ImageFont
 import controller
 from config import ConfigError, node_names, node_path, operation_lock, read_yaml, settings
 from device_screen import (
-    BACKSPACE, DOWN, ENTER, ESC, KEY_U, LEFT, RIGHT, SHORTCUTS,
+    BACKSPACE, DOWN, ENTER, ESC, KEY_F, KEY_U, KEY_X, LEFT, RIGHT, SHORTCUTS,
     SIZE, TAB, UP, DeviceError,
     keyboard_fds, open_display, read_keys,
 )
@@ -280,7 +280,7 @@ class Painter:
                 message, failed = ui.message
                 self.text(draw, xy, message, color=ERROR if failed else GREEN, **placement)
         if is_nodes and len(items) > 1:
-            self.text(draw, (12, 111), ui.tr("2 Prev   3 Next"), color=MUTED)
+            self.text(draw, (12, 111), ui.tr("F/2 Prev   X/3 Next"), color=MUTED)
         if is_nodes:
             actions = ("Add", "Edit", "Select", "Share") if items else ("Add", "", "", "")
         else:
@@ -561,6 +561,11 @@ class Screen:
                 self.form_key(key, text, control)
             return True
         button = SHORTCUTS.get(key)
+        if self.page == "nodes" and not control:
+            if key == KEY_F:
+                button = 2
+            elif key == KEY_X:
+                button = 3
         back = key == ESC
         if repeat and (self.page != "nodes" or button not in (2, 3)):
             return True

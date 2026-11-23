@@ -14,7 +14,7 @@ ZH = {
     "Press 4 to add a node.": "按 4 添加节点。",
     "Add node": "添加节点", "Edit node": "编辑节点", "Save node": "保存节点",
     "Add": "添加", "Edit": "编辑", "Select": "选择", "Share": "分享",
-    "Confirm": "确认", "2 Prev   3 Next": "2 上一项   3 下一项",
+    "Confirm": "确认", "F/2 Prev   X/3 Next": "F/2 上一项   X/3 下一项",
     "Manual entry": "手动输入", "Scan QR": "扫码导入", "Node QR": "节点二维码",
     "Zoom": "变焦", "Exposure": "曝光", "EV": "曝光",
     "No camera detected": "未检测到摄像头",
