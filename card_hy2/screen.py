@@ -184,7 +184,7 @@ class Painter:
         heading = ("Edit node" if ui.form.name else "Add node") if ui.form else PAGES.get(ui.page, "Card HY2")
         self.text(draw, (12, 5), ui.tr(heading), font=self.title)
         if ui.page != "share" or not ui.qr:
-            self.text(draw, (307, 12), "0.0.1", color=MUTED, anchor="rm")
+            self.text(draw, (307, 12), "0.0.2", color=MUTED, anchor="rm")
         draw.line((0, 30, 319, 30), fill=LINE)
         if ui.form:
             self.node_form(draw, ui)

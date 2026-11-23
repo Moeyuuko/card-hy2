@@ -1,13 +1,13 @@
-# Card HY2 0.0.1
+# Card HY2 0.0.2
 
-面向 CardputerZero arm64。应用版本为 `0.0.1`，Debian 包版本为 `0.0.1-1`。安装包包含 Hysteria 2.14.0 Linux arm64 官方核心，HOME 图标基于上游 Hysteria 标志制作，使用 100×100 PNG 和浅色字形。见 [Hysteria 发布页](https://github.com/HyNetworks/hysteria/releases/tag/app/v2.14.0)和 [Hysteria 官方图标](https://github.com/HyNetworks/hysteria-website/blob/master/docs/assets/favicon.png)。
+面向 CardputerZero arm64。应用与 Debian 包版本均为 `0.0.2`。安装包包含 Hysteria 2.14.0 Linux arm64 官方核心，HOME 图标基于上游 Hysteria 标志制作，使用 100×100 PNG 和浅色字形。见 [Hysteria 发布页](https://github.com/HyNetworks/hysteria/releases/tag/app/v2.14.0)和 [Hysteria 官方图标](https://github.com/HyNetworks/hysteria-website/blob/master/docs/assets/favicon.png)。
 
 ## 安装
 
-在开发机运行 `python3 packaging/build_deb.py`。构建依据 `packaging/hysteria-core.json` 下载并核对固定版本，校验过的缓存可用于离线重建。把生成的 `dist/card-hy2_0.0.1-1_arm64.deb` 复制到设备，在包所在目录安装或升级。
+在开发机运行 `python3 packaging/build_deb.py`。构建依据 `packaging/hysteria-core.json` 下载并核对固定版本，校验过的缓存可用于离线重建。把生成的 `dist/card-hy2_0.0.2_arm64.deb` 复制到设备，在包所在目录安装或升级。
 
 ```sh
-sudo apt install ./card-hy2_0.0.1-1_arm64.deb
+sudo apt install ./card-hy2_0.0.2_arm64.deb
 ```
 
 官方固件的设备管理员账号可直接打开 App。安装过程为系统已有的 `sudo` 组配置 Card HY2 专用目录的访问权限。界面和命令行通过本地 Unix socket 控制代理与更新服务，服务根据 Linux 提供的对端身份核查管理员权限。安装无需添加用户组成员或重启，首次安装后代理默认关闭。旧版本已手动加入 `card-hy2` 组的账号仍可使用。核心服务沿用专用非 root 账号。

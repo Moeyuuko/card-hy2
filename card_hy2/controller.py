@@ -241,7 +241,7 @@ def status_snapshot(timeout=12):
 
 def status():
     current = status_snapshot()
-    print("Card HY2 0.0.1")
+    print("Card HY2 0.0.2")
     print("Service {state}/{substate}  PID {pid}".format_map(current))
     running = current["running_version"]
     print(f"Core {current['installed'] or 'missing'}" + (f" (running {running})" if running else ""))

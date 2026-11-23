@@ -1,6 +1,6 @@
 {
   "package_name": "card-hy2",
-  "version": "0.0.1-1",
+  "version": "0.0.2",
   "app_name": "Card HY2",
   "bin_name": "card-hy2-screen",
   "description": "Hysteria 2 client controller for CardputerZero",

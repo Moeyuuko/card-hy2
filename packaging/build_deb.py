@@ -15,7 +15,7 @@ from card_hy2.core_asset import ASSET, MAX_ASSET, VERSION as CORE_VERSION, asset
 
 
 PACKAGE = "card-hy2"
-VERSION = "0.0.1-1"
+VERSION = "0.0.2"
 
 CONTROL = f"""Package: {PACKAGE}
 Version: {VERSION}

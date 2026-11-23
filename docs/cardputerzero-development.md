@@ -32,7 +32,7 @@ Hysteria 客户端的构建、安装和实机验收见 [Card HY2](card-hy2-beta.
 
 ## 打包与商店元数据
 
-网页上传和 `czdev publish` 使用同一套元数据校验。应用须能以非 root 用户运行。安装包命名格式为 `packagename_version-revision_arm64.deb`。以下字段用于准备 `app-builder.json` 或核对门户表单。见 [应用开发规范](https://cardputer.cc/#/documents/cp0-dev)。
+网页上传和 `czdev publish` 使用同一套元数据校验。应用须能以非 root 用户运行。Card HY2 安装包命名格式为 `card-hy2_<版本号>_arm64.deb`。以下字段用于准备 `app-builder.json` 或核对门户表单。见 [应用开发规范](https://cardputer.cc/#/documents/cp0-dev)。
 
 | 字段 | 校验要点 |
 | --- | --- |
