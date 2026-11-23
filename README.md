@@ -22,7 +22,7 @@ Card HY2 是面向 CardputerZero（ARM64）的第三方 Hysteria 2 客户端，�
 将 ARM64 的 `.deb` 复制到 CardputerZero，在包所在目录运行以下命令。已有旧版可用同一条命令升级。
 
 ```sh
-sudo apt install ./card-hy2_0.0.2_arm64.deb
+sudo apt install ./card-hy2_0.0.3_arm64.deb
 ```
 
 从源码构建时，在开发机的仓库根目录运行 `python3 packaging/build_deb.py`。安装包会生成在 `dist/`。

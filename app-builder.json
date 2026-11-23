@@ -1,12 +1,13 @@
 {
   "package_name": "card-hy2",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "app_name": "Card HY2",
   "bin_name": "card-hy2-screen",
   "description": "Hysteria 2 client controller for CardputerZero",
   "store": {
     "summary": "Hysteria 2 client for CardputerZero with SOCKS5 and local TUN.",
     "description": "Card HY2 is a Hysteria 2 client designed for CardputerZero (ARM64), allowing you to add, edit, and switch between nodes directly on the device. On models equipped with a camera, you can scan QR codes to import Hysteria 2 nodes or generate QR codes to share them.\n\nThe app supports SOCKS5 and native TUN. SOCKS5 listens only on the local host by default, with an option to enable LAN sharing if needed; the TUN mode can proxy TCP and UDP traffic for the entire device. The proxy runs in the background under a non-root account, meaning it continues to operate even after you exit the app interface. You can configure it to launch automatically at startup, or use the \"Restore Network\" function to stop the proxy and clear any applied network configurations.\n\nThe installation package includes the official Hysteria 2.14.0 core, and you can check for core updates directly within the app. It supports both Simplified Chinese and English.\n\nThis application is not created by the official Hysteria team. Please contact me if there is any copyright infringement—thank you!",
+    "icon": "packaging/card-hy2-store.png",
     "categories": ["System Tools"],
     "screenshots": [
       "screenshots/home.png",
