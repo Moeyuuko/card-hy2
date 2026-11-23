@@ -6,7 +6,7 @@
   "description": "Hysteria 2 client controller for CardputerZero",
   "store": {
     "summary": "Hysteria 2 client for CardputerZero with SOCKS5 and local TUN.",
-    "description": "Manage Hysteria 2 nodes, import and share node QR codes, and run a SOCKS5 or local TUN proxy in the background. Includes an official Hysteria core, optional auto-start and a network recovery option.",
+    "description": "Card HY2 is a Hysteria 2 client designed for CardputerZero (ARM64), allowing you to add, edit, and switch between nodes directly on the device. On models equipped with a camera, you can scan QR codes to import Hysteria 2 nodes or generate QR codes to share them.\n\nThe app supports SOCKS5 and native TUN. SOCKS5 listens only on the local host by default, with an option to enable LAN sharing if needed; the TUN mode can proxy TCP and UDP traffic for the entire device. The proxy runs in the background under a non-root account, meaning it continues to operate even after you exit the app interface. You can configure it to launch automatically at startup, or use the \"Restore Network\" function to stop the proxy and clear any applied network configurations.\n\nThe installation package includes the official Hysteria 2.14.0 core, and you can check for core updates directly within the app. It supports both Simplified Chinese and English.\n\nThis application is not created by the official Hysteria team. Please contact me if there is any copyright infringement—thank you!",
     "categories": ["System Tools"],
     "screenshots": [
       "screenshots/home.png",
@@ -29,8 +29,20 @@
       "external_display": false
     },
     "locales": {
+      "en": {
+        "title": "Card HY2",
+        "summary": "Hysteria 2 client for CardputerZero with SOCKS5 and local TUN.",
+        "description": "Card HY2 is a Hysteria 2 client designed for CardputerZero (ARM64), allowing you to add, edit, and switch between nodes directly on the device. On models equipped with a camera, you can scan QR codes to import Hysteria 2 nodes or generate QR codes to share them.\n\nThe app supports SOCKS5 and native TUN. SOCKS5 listens only on the local host by default, with an option to enable LAN sharing if needed; the TUN mode can proxy TCP and UDP traffic for the entire device. The proxy runs in the background under a non-root account, meaning it continues to operate even after you exit the app interface. You can configure it to launch automatically at startup, or use the \"Restore Network\" function to stop the proxy and clear any applied network configurations.\n\nThe installation package includes the official Hysteria 2.14.0 core, and you can check for core updates directly within the app. It supports both Simplified Chinese and English.\n\nThis application is not created by the official Hysteria team. Please contact me if there is any copyright infringement—thank you!"
+      },
       "zh-CN": {
-        "summary": "面向 CardputerZero 的 Hysteria 2 客户端，支持节点管理、SOCKS5 和本机 TUN。"
+        "title": "Card HY2",
+        "summary": "面向 CardputerZero 的 Hysteria 2 客户端，支持节点管理、SOCKS5 和本机 TUN。",
+        "description": "Card HY2 是面向 CardputerZero（ARM64）的 Hysteria 2 客户端，支持在设备上添加、编辑和切换节点。配备摄像头的机型可以扫描 Hysteria 2 节点二维码，也可生成二维码分享节点。\n\n支持 SOCKS5 和本机 TUN。SOCKS5 默认仅监听本机，可按需开启局域网共享；TUN 可代理本机 TCP 和 UDP 流量。代理以非 root 账号在后台运行，退出界面后已启动的代理会继续工作。可选开机启动，也可使用「恢复网络」停止代理并清除已应用的代理配置。\n\n安装包包含 Hysteria 2.14.0 官方核心，可在应用内检查核心更新。支持简体中文与英语。\n\n本应用非 Hysteria 官方制作，如有涉及版权问题请联系我。感谢！"
+      },
+      "ja": {
+        "title": "Card HY2",
+        "summary": "CardputerZero 用の Hysteria 2 クライアント。ノード管理、SOCKS5、ローカル TUN に対応。",
+        "description": "Card HY2 は、CardputerZero（ARM64）向けの Hysteria 2 クライアントです。端末上でノードの追加、編集、切り替えができます。カメラ搭載機種では、QR コードを読み取って Hysteria 2 のノードを取り込めます。共有用の QR コードも生成できます。\n\nSOCKS5 と端末内の TUN に対応しています。SOCKS5 は初期設定では端末内からの接続のみを受け付け、必要に応じて LAN 内で共有できます。TUN モードでは、端末の TCP および UDP 通信をプロキシ経由で行えます。プロキシは root 権限を持たないユーザーでバックグラウンド動作し、アプリ画面を閉じても動作を続けます。端末起動時の自動起動を設定できます。また、「Restore Network（ネットワークの復元）」でプロキシを停止し、適用したプロキシ設定を解除できます。\n\nインストールパッケージには Hysteria 2.14.0 の公式コアが含まれており、アプリ内でコアの更新を確認できます。アプリの表示言語は中国語（簡体字）と英語です。\n\n本アプリは Hysteria の公式チームが制作したものではありません。著作権に関する問題がありましたら、開発者までご連絡ください。"
       }
     }
   }

@@ -1,6 +1,6 @@
 # Card HY2
 
-Card HY2 是面向 CardputerZero（ARM64）的 Hysteria 2 客户端。它可以在设备屏幕上管理节点和启停代理，也支持通过 ZeroDesk 或 SSH 操作。Hysteria 核心由 systemd 和独立的非 root 账号管理，关闭界面后，已启动的代理会继续运行。
+Card HY2 是面向 CardputerZero（ARM64）的第三方 Hysteria 2 客户端，由独立开发者制作，非 Hysteria 官方出品。它可以在设备屏幕上管理节点和启停代理，也支持通过 ZeroDesk 或 SSH 操作。Hysteria 核心由 systemd 和独立的非 root 账号管理，关闭界面后，已启动的代理会继续运行。
 
 源代码托管在 [Moeyuuko/card-hy2](https://github.com/Moeyuuko/card-hy2)。
 
